@@ -2,14 +2,28 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    console.log("Connecting to:", process.env.MONGO_URI);
+    console.log(
+      "Connecting to MongoDB Atlas..."
+    );
 
-    await mongoose.connect(process.env.MONGO_URI);
+    const connection =
+      await mongoose.connect(
+        process.env.MONGO_URI,
+        {
+          serverSelectionTimeoutMS: 30000,
+          connectTimeoutMS: 30000,
+        }
+      );
 
-    console.log("MongoDB Connected");
-    console.log("Database Name:", mongoose.connection.name);
+    console.log(
+      `MongoDB Connected: ${connection.connection.host}`
+    );
   } catch (error) {
-    console.log(error.message);
+    console.error(
+      "MongoDB Connection Error:",
+      error.message
+    );
+
     process.exit(1);
   }
 };

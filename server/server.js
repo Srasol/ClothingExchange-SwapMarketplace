@@ -8,7 +8,7 @@ const { Server } = require("socket.io");
 const connectDB = require("./config/db");
 
 dotenv.config();
-connectDB();
+
 
 const app = express();
 
@@ -136,8 +136,26 @@ io.on("connection", (socket) => {
   });
 });
 
+
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => {
-  console.log(`Server Running on http://localhost:${PORT}`);
-});
+const startServer = async () => {
+  try {
+    await connectDB();
+
+    server.listen(PORT, "0.0.0.0", () => {
+      console.log(
+        `Server Running on http://localhost:${PORT}`
+      );
+    });
+  } catch (error) {
+    console.error(
+      "Server startup failed:",
+      error.message
+    );
+
+    process.exit(1);
+  }
+};
+
+startServer();
