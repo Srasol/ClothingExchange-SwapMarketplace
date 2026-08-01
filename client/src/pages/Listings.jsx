@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 
 import API from "../services/api";
-import "../styles/Listings.css";
+import "../styles/listings.css";
 import getImageUrl from "../utils/imageUrl";
 
 
