@@ -1,0 +1,235 @@
+/* ==========================================
+   PREMIUM PAGE HEADER
+========================================== */
+
+.fashion-page-header{
+    margin-bottom:30px;
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:#17201B;
+
+    color:#fff;
+
+    padding:40px;
+
+    box-shadow:0 20px 45px rgba(23,32,27,.35);
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.fashion-page-header-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.fashion-page-header-copy{
+    flex:1;
+}
+
+/* Back Button */
+
+.fashion-page-back{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:22px;
+
+    background:none;
+    border:none;
+
+    color:#E8E8E8;
+
+    font-size:17px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.fashion-page-back:hover{
+    color:#ffffff;
+}
+
+/* Small Label */
+
+.fashion-page-label{
+    display:block;
+
+    margin-bottom:12px;
+
+    color:#AEB8B3;
+
+    font-size:13px;
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+/* Heading */
+
+.fashion-page-header h1{
+    margin:0;
+
+    color:#FFFFFF;
+
+    font-size:42px;
+
+    font-weight:700;
+}
+
+/* Description */
+
+.fashion-page-header p{
+    margin-top:15px;
+
+    max-width:650px;
+
+    color:#C7CFCA;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+/* Right Side */
+
+.fashion-page-header-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+/* Icon */
+
+.fashion-page-icon{
+    width:82px;
+    height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    font-size:38px;
+
+    color:#FFFFFF;
+}
+
+/* Counter */
+
+.fashion-page-count{
+    min-width:120px;
+
+    padding:18px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.fashion-page-count strong{
+    display:block;
+
+    color:#FFFFFF;
+
+    font-size:30px;
+}
+
+.fashion-page-count span{
+    color:#B7C0BB;
+
+    font-size:13px;
+}
+
+/* Action Button */
+
+.fashion-page-action{
+    margin-top:22px;
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:13px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#FFFFFF;
+
+    color:#17201B;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.fashion-page-action:hover{
+    background:#EAEAEA;
+    transform:translateY(-2px);
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.fashion-page-header{
+    padding:30px;
+}
+
+.fashion-page-header-content{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.fashion-page-header-right{
+    width:100%;
+}
+
+.fashion-page-header h1{
+    font-size:34px;
+}
+
+}
+
+@media(max-width:600px){
+
+.fashion-page-header{
+    padding:22px;
+}
+
+.fashion-page-header h1{
+    font-size:28px;
+}
+
+.fashion-page-header-right{
+    justify-content:space-between;
+}
+
+.fashion-page-icon{
+    width:70px;
+    height:70px;
+    font-size:30px;
+}
+
+}

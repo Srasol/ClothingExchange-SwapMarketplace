@@ -1,0 +1,78 @@
+/* ===== Large Desktop ===== */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* ===== Laptop ===== */
+@media (max-width: 1200px) {
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 992px) {
+
+  .row > div {
+    margin-bottom: 20px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+/* ===== Small Mobile ===== */
+@media (max-width: 576px) {
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+}

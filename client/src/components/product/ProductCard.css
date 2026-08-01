@@ -1,0 +1,117 @@
+.product-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-image{
+    position:relative;
+    height:260px;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.product-card:hover img{
+    transform:scale(1.08);
+}
+
+.wishlist-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+    color:red;
+    font-size:18px;
+}
+
+.condition-badge{
+    position:absolute;
+    left:15px;
+    bottom:15px;
+    background:#2563eb;
+    color:white;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.product-content{
+    padding:20px;
+}
+
+.product-content h3{
+    margin-bottom:5px;
+    font-size:22px;
+}
+
+.brand{
+    color:#777;
+    margin-bottom:15px;
+}
+
+.details{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.location{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+}
+
+.view-btn,
+.swap-btn{
+    flex:1;
+    text-decoration:none;
+    border:none;
+    padding:12px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+}
+
+.view-btn{
+    background:#e5e7eb;
+    color:#111;
+}
+
+.swap-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.swap-btn:hover{
+    background:#1d4ed8;
+}

@@ -1,0 +1,118 @@
+.message {
+  position: relative;
+}
+
+.message-reply-reference {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-left: 4px solid currentColor;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+}
+
+.message.received .message-reply-reference {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.message-reply-reference strong {
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.message-reply-reference span {
+  max-width: 260px;
+  overflow: hidden;
+  color: inherit;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.message-reply-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  padding: 3px 7px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+  opacity: 0.72;
+}
+
+.message-reply-button:hover {
+  background: rgba(255, 255, 255, 0.16);
+  opacity: 1;
+}
+
+.message.received .message-reply-button:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.reply-compose-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-left: 4px solid #0d6efd;
+  border-top: 1px solid rgba(128, 128, 128, 0.22);
+  background: var(--bs-body-bg, #fff);
+}
+
+.reply-compose-content {
+  min-width: 0;
+}
+
+.reply-compose-content strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.82rem;
+}
+
+.reply-compose-content p {
+  max-width: min(70vw, 520px);
+  margin: 0;
+  overflow: hidden;
+  color: #6c757d;
+  font-size: 0.82rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reply-compose-close {
+  display: grid;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  place-items: center;
+}
+
+.reply-compose-close:hover {
+  background: rgba(128, 128, 128, 0.16);
+}
+
+@media (max-width: 600px) {
+  .message-reply-reference span {
+    max-width: 190px;
+  }
+
+  .message-reply-button span {
+    display: none;
+  }
+}

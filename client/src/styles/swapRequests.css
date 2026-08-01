@@ -1,0 +1,92 @@
+.swap-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left,
+      rgba(79, 70, 229, 0.12),
+      transparent 35%),
+    linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+.swap-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid #edf0f5;
+  box-shadow: 0 12px 30px rgba(31, 41, 55, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.swap-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(31, 41, 55, 0.15);
+}
+
+.swap-card h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+.swap-card p {
+  color: #6b7280;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.swap-card strong {
+  color: #1f2937;
+}
+
+.swap-card .badge {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.swap-card .btn {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 10px;
+  transition: 0.25s;
+}
+
+.swap-card .btn-success:hover {
+  transform: translateY(-2px);
+}
+
+.swap-card .btn-danger:hover {
+  transform: translateY(-2px);
+}
+
+.empty-card {
+  background: white;
+  border-radius: 20px;
+  padding: 60px;
+  text-align: center;
+  box-shadow: 0 12px 25px rgba(31, 41, 55, 0.08);
+}
+
+.empty-card h4 {
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .swap-page {
+    padding: 15px;
+  }
+
+  .swap-card {
+    padding: 20px;
+  }
+
+  .swap-card .d-flex.gap-2 {
+    flex-direction: column;
+  }
+
+  .swap-card .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,34 @@
+.footer {
+    background: #1e293b;
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+.footer h4,
+.footer h5 {
+    color: #ffd54f;
+}
+
+.footer p {
+    color: #ddd;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-links li:hover {
+    color: #ffd54f;
+}
+
+.footer hr {
+    border-color: rgba(255,255,255,.2);
+}
