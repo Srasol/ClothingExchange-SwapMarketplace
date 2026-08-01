@@ -28,7 +28,7 @@ app.use(
 );
 
 app.use("/api/auth", require("./routes/authroutes"));
-app.use("/api/listings", require("./routes/listingRoutes"));
+app.use("/api/listings", require("./routes/ListingRoutes"));
 app.use("/api/swaps", require("./routes/swapRoutes"));
 app.use("/api/messages", require("./routes/messageRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
