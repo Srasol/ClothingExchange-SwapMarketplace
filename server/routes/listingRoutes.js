@@ -10,7 +10,7 @@ const protect = require(
 );
 
 const listingController = require(
-  "../controllers/listingController"
+  "../controllers/ListingController"
 );
 
 // Temporary check
