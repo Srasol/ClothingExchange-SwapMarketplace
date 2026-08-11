@@ -26,7 +26,9 @@ import {
 
 import API from "../services/api";
 import "../styles/itemDetails.css";
-import getImageUrl from "../utils/imageUrl";
+import {
+  getImageUrl,
+} from "../utils/imageUrl";
 
 function ItemDetails() {
   const { id } = useParams();
@@ -135,31 +137,7 @@ function ItemDetails() {
     }
   };
 
-  const getImageUrl = (image) => {
-    if (!image) {
-      return "https://placehold.co/1000x1200?text=Clothing";
-    }
-
-    if (
-      image.startsWith("http://") ||
-      image.startsWith("https://") ||
-      image.startsWith("data:")
-    ) {
-      return image;
-    }
-
-    const normalized = image.replaceAll("\\", "/");
-
-    if (normalized.startsWith("/uploads/")) {
-      return `http://localhost:5000${normalized}`;
-    }
-
-    if (normalized.startsWith("uploads/")) {
-      return `http://localhost:5000/${normalized}`;
-    }
-
-    return `http://localhost:5000/uploads/${normalized}`;
-  };
+  
 
   const owner = item?.owner || {};
   const ownerId =
@@ -320,14 +298,18 @@ function ItemDetails() {
       <section className="premium-item-layout">
         <div className="item-gallery-column">
           <div className="item-main-image">
-            <img
-              src={selectedImage}
-              alt={item.title}
-              onError={(event) => {
-                event.currentTarget.src =
-                  "https://placehold.co/1000x1200?text=Clothing";
-              }}
-            />
+           <img
+  src={
+    selectedImage ||
+    getImageUrl(item.image)
+  }
+  alt={item.title || "Listing"}
+  onError={(event) => {
+    event.currentTarget.src =
+      "/placeholder-image.png";
+  }}
+/>
+
 
             <span className="item-image-condition">
               {item.condition || "Good condition"}

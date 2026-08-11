@@ -21,7 +21,11 @@ import {
 } from "react-icons/fa";
 
 import API from "../services/api";
+import {
+  getImageUrl,
+} from "../utils/imageUrl";
 import "../styles/profile.css";
+
 
 function Profile() {
   const navigate = useNavigate();
@@ -82,29 +86,15 @@ function Profile() {
     };
   }, []);
 
-  const getImageUrl = useCallback((image) => {
-    if (!image) return "";
-
-    if (
-      image.startsWith("http://") ||
-      image.startsWith("https://") ||
-      image.startsWith("data:") ||
-      image.startsWith("blob:")
-    ) {
-      return image;
-    }
-
-    return `http://localhost:5000/${image.replaceAll("\\", "/")}`;
-  }, []);
-
   useEffect(() => {
-    const initialProfile = buildProfile(storedUser);
+  const initialProfile = buildProfile(storedUser);
 
-    setProfile(initialProfile);
-    setOriginalProfile(initialProfile);
-    setImagePreview(getImageUrl(initialProfile.profileImage));
-  }, [buildProfile, getImageUrl, storedUser]);
-
+  setProfile(initialProfile);
+  setOriginalProfile(initialProfile);
+  setImagePreview(
+    getImageUrl(initialProfile.profileImage)
+  );
+}, [buildProfile, storedUser]);
   useEffect(() => {
     const loadStats = async () => {
       if (!userId) {
@@ -250,13 +240,22 @@ function Profile() {
     setMessage({ type: "", text: "" });
   };
 
-  const cancelEditing = () => {
-    setProfile(originalProfile);
-    setImagePreview(getImageUrl(originalProfile.profileImage));
-    setSelectedImage(null);
-    setEditing(false);
-    setMessage({ type: "", text: "" });
-  };
+ const cancelEditing = () => {
+  setProfile(originalProfile);
+
+  setImagePreview(
+    originalProfile.profileImage
+      ? getImageUrl(originalProfile.profileImage)
+      : ""
+  );
+
+  setSelectedImage(null);
+  setEditing(false);
+  setMessage({
+    type: "",
+    text: "",
+  });
+};
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -317,7 +316,11 @@ function Profile() {
 
       setProfile(updatedProfile);
       setOriginalProfile(updatedProfile);
-      setImagePreview(getImageUrl(updatedProfile.profileImage));
+      setImagePreview(
+  updatedProfile.profileImage
+    ? getImageUrl(updatedProfile.profileImage)
+    : ""
+);
       setSelectedImage(null);
       setEditing(false);
 

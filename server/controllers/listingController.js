@@ -15,7 +15,7 @@ exports.createListing = async (req, res) => {
       estimatedValue: req.body.estimatedValue,
       location: req.body.location,
       image: req.file
-  ? `uploads/clothing/${req.file.filename}`
+  ? req.file.path
   : "",
       owner: req.user.id,
     });
@@ -400,7 +400,7 @@ exports.updateListing = async (req, res) => {
     }
 
     if (req.file) {
-  listing.image = `uploads/clothing/${req.file.filename}`;
+  listing.image = req.file.path;
 }
 
     const updatedListing =

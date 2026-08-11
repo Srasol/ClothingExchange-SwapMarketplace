@@ -1,20 +1,33 @@
 const SERVER_URL =
   import.meta.env.VITE_SERVER_URL ||
-  "http://localhost:5000";
+  "https://clothingexchange-swapmarketplace.onrender.com";
 
-const getImageUrl = (image) => {
+export const getImageUrl = (image) => {
   if (!image) {
-    return "https://placehold.co/600x450?text=No+Image";
+    return "/placeholder-image.png";
   }
 
   if (
-    image.startsWith("http://") ||
-    image.startsWith("https://")
+    image.startsWith("https://") ||
+    image.startsWith("data:") ||
+    image.startsWith("blob:")
   ) {
     return image;
   }
 
-  return `${SERVER_URL}/${image.replace(/\\/g, "/")}`;
-};
+  let cleanPath = String(image)
+    .replace(/\\/g, "/")
+    .replace(/^\/+/, "");
 
-export default getImageUrl;
+  cleanPath = cleanPath.replace(
+    "http://localhost:5000/",
+    ""
+  );
+
+  // Old listing records may contain only the filename.
+  if (!cleanPath.includes("/")) {
+    cleanPath = `uploads/clothing/${cleanPath}`;
+  }
+
+  return `${SERVER_URL}/${cleanPath}`;
+};

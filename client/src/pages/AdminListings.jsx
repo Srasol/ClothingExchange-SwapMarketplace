@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import API from "../services/api";
-import getImageUrl from "../utils/imageUrl";
+import {
+  getImageUrl,
+} from "../utils/imageUrl";
 
 function AdminListings() {
   const [listings, setListings] = useState([]);

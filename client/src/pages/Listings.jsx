@@ -17,8 +17,9 @@ import {
 
 import API from "../services/api";
 import "../styles/listings.css";
-import getImageUrl from "../utils/imageUrl";
-
+import {
+  getImageUrl,
+} from "../utils/imageUrl";
 
 function MyListings() {
   const storedUser = useMemo(() => {
@@ -508,13 +509,13 @@ function ListingCard({
         className="my-listing-image"
       >
         <img
-          src={imageUrl}
-          alt={listing.title || "Clothing item"}
-          onError={(event) => {
-            event.currentTarget.src =
-              "https://placehold.co/800x950?text=Clothing";
-          }}
-        />
+  src={imageUrl}
+  alt={listing.title || "Listing"}
+  onError={(event) => {
+    event.currentTarget.src =
+      "/placeholder-image.png";
+  }}
+/>
 
         <span
           className={`my-listing-status ${

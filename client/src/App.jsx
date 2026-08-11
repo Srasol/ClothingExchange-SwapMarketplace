@@ -30,6 +30,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
 import UserLayout from "./components/UserLayout";
 import AdminLayout from "./components/AdminLayout";
+import MyListings from "./pages/MyListings";
 
 function App() {
   return (
@@ -47,6 +48,10 @@ function App() {
       >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/listings" element={<Listings />} />
+        <Route
+  path="/my-listings"
+  element={<MyListings />}
+/>
         <Route path="/add-listing" element={<AddListing />} />
         <Route path="/item/:id" element={<ItemDetails />} />
         <Route path="/swap-requests" element={<SwapRequests />} />
@@ -97,6 +102,7 @@ function App() {
           path="/admin/settings"
           element={<AdminSettings />}
         />
+    
       </Route>
     </Routes>
   );

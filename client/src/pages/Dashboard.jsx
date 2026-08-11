@@ -15,8 +15,10 @@ import {
 } from "react-icons/fa";
 import api from "../services/api";
 import "../styles/dashboard.css";
+import {
+  getImageUrl,
+} from "../utils/imageUrl";
 
-const API_BASE = "http://localhost:5000";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -149,24 +151,7 @@ function Dashboard() {
 
   const featuredListings = recentListings.slice(0, 3);
 
-  const getImageUrl = (imagePath) => {
-    if (!imagePath) {
-      return "https://placehold.co/900x1100?text=Clothing";
-    }
-
-    if (
-      imagePath.startsWith("http://") ||
-      imagePath.startsWith("https://")
-    ) {
-      return imagePath;
-    }
-
-    const normalizedPath = imagePath.replace(/\\/g, "/");
-
-    return `${API_BASE}${
-      normalizedPath.startsWith("/") ? "" : "/"
-    }${normalizedPath}`;
-  };
+ 
 
   const handleSearch = (event) => {
     event.preventDefault();

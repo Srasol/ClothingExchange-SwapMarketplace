@@ -19,27 +19,7 @@ import {
 } from "react-icons/fa";
 
 import "./UserLayout.css";
-
-const SERVER_URL =
-  import.meta.env.VITE_SERVER_URL ||
-  "http://localhost:5000";
-
-const getProfileImageUrl = (image) => {
-  if (!image) {
-    return "";
-  }
-
-  if (
-    image.startsWith("http://") ||
-    image.startsWith("https://") ||
-    image.startsWith("data:") ||
-    image.startsWith("blob:")
-  ) {
-    return image;
-  }
-
-  return `${SERVER_URL}/${image.replace(/\\/g, "/")}`;
-};
+import { getImageUrl } from "../utils/imageUrl";
 
 function UserLayout() {
   const navigate = useNavigate();
@@ -52,9 +32,7 @@ function UserLayout() {
 
   const [user, setUser] = useState(() => {
     try {
-      return JSON.parse(
-        localStorage.getItem("user") || "null"
-      );
+      return JSON.parse(localStorage.getItem("user") || "null");
     } catch {
       return null;
     }
@@ -73,7 +51,6 @@ function UserLayout() {
         const updatedUser = JSON.parse(
           localStorage.getItem("user") || "null"
         );
-
         setUser(updatedUser);
       } catch {
         setUser(null);
@@ -160,7 +137,6 @@ function UserLayout() {
         type="button"
         className="mobile-sidebar-button"
         onClick={() => setMobileOpen(true)}
-        aria-label="Open sidebar"
       >
         <FaBars />
       </button>
@@ -170,7 +146,6 @@ function UserLayout() {
           type="button"
           className="user-sidebar-overlay"
           onClick={() => setMobileOpen(false)}
-          aria-label="Close sidebar"
         />
       )}
 
@@ -197,16 +172,6 @@ function UserLayout() {
             onClick={() =>
               setCollapsed((current) => !current)
             }
-            aria-label={
-              collapsed
-                ? "Expand sidebar"
-                : "Collapse sidebar"
-            }
-            title={
-              collapsed
-                ? "Expand sidebar"
-                : "Collapse sidebar"
-            }
           >
             <FaBars />
           </button>
@@ -215,7 +180,6 @@ function UserLayout() {
             type="button"
             className="mobile-sidebar-close"
             onClick={() => setMobileOpen(false)}
-            aria-label="Close sidebar"
           >
             <FaTimes />
           </button>
@@ -228,7 +192,6 @@ function UserLayout() {
               to={item.to}
               className={getLinkClass}
               onClick={() => setMobileOpen(false)}
-              title={collapsed ? item.label : ""}
             >
               <span className="user-link-icon">
                 {item.icon}
@@ -245,16 +208,38 @@ function UserLayout() {
           <div className="user-profile-summary">
             <div className="user-profile-avatar">
               {user?.profileImage ? (
-                <img
-                  src={getProfileImageUrl(
-                    user.profileImage
-                  )}
-                  alt={user?.name || "Profile"}
-                  onError={(event) => {
-                    event.currentTarget.style.display =
-                      "none";
-                  }}
-                />
+                <>
+                  <img
+                    src={getImageUrl(
+                      user.profileImage
+                    )}
+                    alt={
+                      user?.name || "Profile"
+                    }
+                    onError={(e) => {
+                      e.currentTarget.style.display =
+                        "none";
+
+                      if (
+                        e.currentTarget
+                          .nextElementSibling
+                      ) {
+                        e.currentTarget.nextElementSibling.style.display =
+                          "flex";
+                      }
+                    }}
+                  />
+
+                  <span
+                    style={{
+                      display: "none",
+                    }}
+                  >
+                    {user?.name
+                      ?.charAt(0)
+                      ?.toUpperCase() || "U"}
+                  </span>
+                </>
               ) : (
                 <span>
                   {user?.name
@@ -265,8 +250,13 @@ function UserLayout() {
             </div>
 
             <div className="sidebar-text">
-              <strong>{user?.name || "User"}</strong>
-              <small>{user?.email || ""}</small>
+              <strong>
+                {user?.name || "User"}
+              </strong>
+
+              <small>
+                {user?.email || ""}
+              </small>
             </div>
           </div>
 
@@ -274,7 +264,6 @@ function UserLayout() {
             type="button"
             className="user-logout-button"
             onClick={logout}
-            title={collapsed ? "Logout" : ""}
           >
             <FaSignOutAlt />
 

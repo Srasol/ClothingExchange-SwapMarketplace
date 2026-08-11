@@ -14,7 +14,9 @@ import {
 
 import API from "../services/api";
 import PageHeader from "../components/PageHeader";
-import getImageUrl from "../utils/imageUrl";
+import {
+  getImageUrl,
+} from "../utils/imageUrl";
 
 function Wishlist() {
   const navigate = useNavigate();
